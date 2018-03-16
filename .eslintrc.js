@@ -20,5 +20,8 @@ module.exports = {
     },
     "plugins": [
         "react"
-    ]
+    ],
+    "rules": {
+        "func-style": "off"
+    }
 };
