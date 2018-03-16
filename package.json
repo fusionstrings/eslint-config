@@ -1,6 +1,6 @@
 {
   "name": "@fusionstrings/eslint-config",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "ESLint config with prettier integration",
   "main": "index.js",
   "scripts": {
