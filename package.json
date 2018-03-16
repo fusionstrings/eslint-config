@@ -4,6 +4,7 @@
   "description": "ESLint config with prettier integration",
   "main": "index.js",
   "scripts": {
+    "prepublish": "npm test",
     "test": "jest"
   },
   "repository": {
