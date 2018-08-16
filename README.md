@@ -1,17 +1,17 @@
-# fusionstrings eslint config
+# comeon eslint config
 
 Combines eslint with prettier
 
 ## Uses
 
 ```js
-	npm install --save-dev @fusionstrings/eslint-config
+	npm install --save-dev @comeon/eslint-config
 ```
 
 or 
 
 ```js
-	yarn add --dev @fusionstrings/eslint-config
+	yarn add --dev @comeon/eslint-config
 ```
 
 ## Add to eslint config
@@ -19,7 +19,10 @@ or
 ```js
 // .eslintrc.js
 module.exports = {
-	extends: ['@fusionstrings']
+	extends: ['@comeon']
 }
 
 ```
+
+## Customization 
+https://eslint.org/docs/user-guide/configuring#configuring-rules

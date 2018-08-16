@@ -1,21 +1,42 @@
-const eslint = require('eslint');
-const eslintConfig = require('./../index.js');
+/* eslint-disable import/no-commonjs */
+const { CLIEngine } = require('eslint');
+const path = require('path');
+// const eslintConfig = require('./../index.js');
 
-it('works', () => {
-	expect(eslintConfig).toHaveProperty('env');
+const cli = new CLIEngine({
+	configFile: 'lib/browser.js',
+	useEslintrc: false
 });
 
+// console.log(cli.executeOnFiles(`${process.cwd()}./fixtures/common-js-import`));
+
+// it('works', () => {
+// 	expect(eslintConfig).toHaveProperty('env');
+// });
+
 it('load config in eslint to validate all rule syntax is correct', () => {
-	const { CLIEngine } = eslint;
-
-	const cli = new CLIEngine({
-		configFile: './index.js',
-		useEslintrc: false
-	});
-
 	const code =
 		'const foo = 1;\nconst bar = function bar() {\n\treturn true;\n};\nbar(foo);\n';
 	const noErrorCount = 0;
 
 	expect(cli.executeOnText(code).errorCount).toEqual(noErrorCount);
 });
+
+it('require style imports not allowed', async () => {
+	const report = await cli.executeOnFiles([
+		path.resolve(
+			process.cwd(),
+			'fixtures',
+			'universal-web',
+			'should-fail',
+			'common-js-import.js'
+		)
+	]);
+	// const { ruleId, message } = await report.results[0];
+	expect(report.errorCount).toEqual(1);
+});
+// it('should disable func-style rule', () => {
+// 	expect(
+// 		cli.executeOnFiles('./../common-js-import.js').errorCount
+// 	).toBeGreaterThan(0);
+// });
