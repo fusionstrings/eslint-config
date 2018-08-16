@@ -1,25 +1,16 @@
 image: node:alpine
 
 stages:
-  - build
   - test
   - deploy
 
-# BUILD
-build:
-  stage: build
-  script:
-    - npm ci
-  cache:
-    key: ${CI_COMMIT_REF_SLUG}
-    paths:
-      - node_modules
-
 # TEST
 test:
-  script:
-    - npm test
   stage: test
+  script:
+    - npm cit
+  dependencies: 
+    - build
   cache:
     paths:
       - node_modules
@@ -30,8 +21,11 @@ deploy:
     name: production
     url: https://www.npmjs.com/package/@comeon/eslint-config
   script:
+    - npm ci
     - npm pack
+    - npm publish --access public
   dependencies: 
     - build
   only:
     - master
+    - tag
