@@ -11,7 +11,7 @@ jobs:
       # - image: circleci/mongo:3.4.4
 
     steps:
-      - test_deploy
+      - test
 
       # Download and cache dependencies
       - restore_cache:
