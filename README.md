@@ -1,3 +1,5 @@
+[![pipeline status](https://gitlab.com/comeon-stockholm/eslint-config/badges/master/pipeline.svg)](https://gitlab.com/comeon-stockholm/eslint-config/commits/master)
+
 # comeon eslint config
 
 Combines eslint with prettier
