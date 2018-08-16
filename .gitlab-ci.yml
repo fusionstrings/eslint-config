@@ -24,3 +24,14 @@ test:
     paths:
       - node_modules
 
+deploy:
+  stage: deploy
+  environment:
+    name: production
+    url: https://www.npmjs.com/package/@comeon/eslint-config
+  script:
+    - npm pack
+  dependencies: 
+    - build
+  only:
+    - master
