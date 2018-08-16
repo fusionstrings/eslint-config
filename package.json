@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "description": "ESLint config with prettier integration",
   "main": "index.js",
+  "files": [
+    "index.js",
+    "lib"
+  ],
   "scripts": {
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
