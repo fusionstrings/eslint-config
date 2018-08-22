@@ -50,9 +50,7 @@ workflows:
   version: 2
   prepare-test-publish:
     jobs:
-      - prepare:
-          requires:
-            - prepare
+      - prepare
       - test:
           requires:
             - prepare
