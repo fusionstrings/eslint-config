@@ -1,34 +1,65 @@
 version: 2
+
+defaults: &defaults
+  working_directory: ~/workspace
+  docker:
+    - image: circleci/node:10
+
 jobs:
-  build:
-    docker:
-      # specify the version you desire here
-      - image: circleci/node:10
-      
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/mongo:3.4.4
-
+  prepare:
+    <<: *defaults
     steps:
-      - test
+      - checkout
 
-      # Download and cache dependencies
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
-
-      - run: npm ci
-      - run: npm test
-      - run: npm publish
+      - run:
+          name: Install dependencies
+          command: npm ci
 
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-        
-      # run tests!
+
+      - persist_to_workspace:
+          root: ~/workspace
+          paths: .
+  test:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/workspace
       - run: npm test
+  publish:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/workspace
+      - run: 
+          name: Authenticate with registry
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
+      - run:
+          name: Publish package
+          command: npm publish --access public
+
+workflows:
+  version: 2
+  test-publish:
+    jobs:
+      - test:
+          filters:
+            tags:
+              only: /^v.*/
+      - deploy:
+          requires:
+            - test
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              ignore: /.*/
 
