@@ -54,9 +54,6 @@ workflows:
       - test:
           requires:
             - prepare
-          filters:
-            tags:
-              only: /^v.*/
       - deploy:
           requires:
             - test
