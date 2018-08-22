@@ -48,9 +48,14 @@ jobs:
 
 workflows:
   version: 2
-  test-publish:
+  prepare-test-publish:
     jobs:
+      - prepare:
+          requires:
+            - prepare
       - test:
+          requires:
+            - prepare
           filters:
             tags:
               only: /^v.*/
