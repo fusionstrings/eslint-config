@@ -54,7 +54,7 @@ workflows:
       - test:
           requires:
             - prepare
-      - deploy:
+      - publish:
           requires:
             - test
           filters:
