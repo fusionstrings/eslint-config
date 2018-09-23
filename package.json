@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/fusionstrings/eslint-config#readme",
   "dependencies": {
+    "@fusionstrings/prettier-config": "^1.0.0",
     "babel-eslint": "^9.0.0",
     "eslint": "^5.6.0",
     "eslint-config-prettier": "^3.1.0",
