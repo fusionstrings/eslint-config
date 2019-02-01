@@ -24,7 +24,7 @@ deploy:
   script:
     - npm ci
     - npm pack
-    - npm publish --access public
+    # - npm publish --access public
   dependencies: 
     - build
   only:
