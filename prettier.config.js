@@ -1,6 +1,1 @@
-module.exports = {
-	parser: 'babylon',
-	singleQuote: true,
-	tabWidth: 4,
-	useTabs: true
-};
+module.exports = require('@comeon/prettier-config');
