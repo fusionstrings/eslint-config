@@ -15,11 +15,9 @@ const cli = new CLIEngine({
 // });
 
 it('load config in eslint to validate all rule syntax is correct', () => {
-	const code =
-		'const foo = 1;\nconst bar = function bar() {\n\treturn true;\n};\nbar(foo);\n';
 	const noErrorCount = 0;
-
-	expect(cli.executeOnText(code).errorCount).toEqual(noErrorCount);
+	const report = cli.executeOnFiles(['./sample.js']);
+	expect(report.errorCount).toEqual(noErrorCount);
 });
 
 it('require style imports not allowed', async () => {
