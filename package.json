@@ -37,11 +37,11 @@
     "prettier-eslint": "^8.8.2"
   },
   "peerDependencies": {
-    "eslint": ">=5.13.0"
+    "eslint": ">=5.14.0"
   },
   "devDependencies": {
-    "@comeon/prettier-config": "^1.2.0",
-    "eslint": "^5.13.0",
+    "@comeon/prettier-config": "^1.2.1",
+    "eslint": "^5.14.0",
     "jest": "^24.1.0"
   }
 }
