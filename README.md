@@ -1,4 +1,4 @@
-[![pipeline status](https://gitlab.com/comeon-stockholm/eslint-config/badges/master/pipeline.svg)](https://gitlab.com/comeon-stockholm/eslint-config/commits/master)
+[![pipeline status](https://gitlab.com/comeon-stockholm/eslint-config/badges/master/pipeline.svg)](https://gitlab.com/comeon-stockholm/eslint-config/commits/master) [![Greenkeeper badge](https://badges.greenkeeper.io/comeon-stockholm/eslint-config.svg)](https://greenkeeper.io/)
 
 # comeon eslint config
 
