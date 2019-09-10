@@ -28,3 +28,13 @@ module.exports = {
 
 ## Customization 
 https://eslint.org/docs/user-guide/configuring#configuring-rules
+
+## Contribution
+Raise a pull request
+
+## Release
+
+```sh
+npm version <major> | <minor> | <patch>
+git push --follow-tags
+```
