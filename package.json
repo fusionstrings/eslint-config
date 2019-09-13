@@ -1,6 +1,6 @@
 {
   "name": "@comeon/eslint-config",
-  "version": "2.0.4",
+  "version": "3.0.0",
   "description": "ESLint config with prettier integration",
   "main": "index.js",
   "files": [
